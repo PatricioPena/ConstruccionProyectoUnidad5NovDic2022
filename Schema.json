@@ -1,0 +1,68 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome7",
+    "definitions": {
+        "Welcome7": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "employees": {
+                    "$ref": "#/definitions/Employees"
+                }
+            },
+            "required": [
+                "employees"
+            ],
+            "title": "Welcome7"
+        },
+        "Employees": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "employee": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Employee"
+                    }
+                }
+            },
+            "required": [
+                "employee"
+            ],
+            "title": "Employees"
+        },
+        "Employee": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "photo": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "https"
+                    ],
+                    "qt-uri-extensions": [
+                        ".jpg"
+                    ]
+                }
+            },
+            "required": [
+                "firstName",
+                "id",
+                "lastName",
+                "photo"
+            ],
+            "title": "Employee"
+        }
+    }
+}
