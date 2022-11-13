@@ -4,6 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import javax.swing.JOptionPane;
 
 public class Lectura_Json {
 
@@ -24,6 +25,7 @@ public class Lectura_Json {
                 String lastname = item.getString("lastName");
                 String photo = item.getString("photo");
 
+                JOptionPane.showMessageDialog(null, "ID: " + id + "\n" + "Nombre: " + name + "\n" + "Apellido: " + lastname + "\n" + "Foto: " + photo + "\n");
                 System.out.println("ID: " + id);
                 System.out.println("Nombre: " + name);
                 System.out.println("Apellido: " + lastname);
