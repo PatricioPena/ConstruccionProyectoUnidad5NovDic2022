@@ -11,7 +11,7 @@ public class Lectura_Json {
 
         try {
            
-            String content = Files.readString(Paths.get("listado.json"));
+            String content = Files.readString(Paths.get("src/listado.json"));
             JSONObject obj = new JSONObject(content);
             JSONObject jsonObject = obj.getJSONObject("employees");
             JSONArray jsonPersonData = jsonObject.getJSONArray("employee");
