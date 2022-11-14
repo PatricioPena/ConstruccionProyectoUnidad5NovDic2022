@@ -1,68 +1,91 @@
 {
-    "$schema": "http://json-schema.org/draft-06/schema#",
-    "$ref": "#/definitions/Welcome7",
-    "definitions": {
-        "Welcome7": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "employees": {
-                    "$ref": "#/definitions/Employees"
-                }
-            },
-            "required": [
-                "employees"
-            ],
-            "title": "Welcome7"
-        },
-        "Employees": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "employee": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Employee"
-                    }
-                }
-            },
-            "required": [
-                "employee"
-            ],
-            "title": "Employees"
-        },
-        "Employee": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "id": {
-                    "type": "string",
-                    "format": "integer"
-                },
-                "firstName": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "employees": {
+        "type": "object",
+        "properties": {
+          "employee": {
+            "type": "array",
+            "items": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
                     "type": "string"
-                },
-                "lastName": {
+                  },
+                  "firstName": {
                     "type": "string"
+                  },
+                  "lastName": {
+                    "type": "string"
+                  },
+                  "photo": {
+                    "type": "string"
+                  }
                 },
-                "photo": {
-                    "type": "string",
-                    "format": "uri",
-                    "qt-uri-protocols": [
-                        "https"
-                    ],
-                    "qt-uri-extensions": [
-                        ".jpg"
-                    ]
-                }
-            },
-            "required": [
-                "firstName",
-                "id",
-                "lastName",
-                "photo"
-            ],
-            "title": "Employee"
-        }
-    }
-}
+                "required": [
+                  "id",
+                  "firstName",
+                  "lastName",
+                  "photo"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "firstName": {
+                    "type": "string"
+                  },
+                  "lastName": {
+                    "type": "string"
+                  },
+                  "photo": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "firstName",
+                  "lastName",
+                  "photo"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "firstName": {
+                    "type": "string"
+                  },
+                  "lastName": {
+                    "type": "string"
+                  },
+                  "photo": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "firstName",
+                  "lastName",
+                  "photo"
+                ]
+              }
+            ]
+          }
+        },
+        "required": [
+          "employee"
+        ]
+      }
+    },
+    "required": [
+      "employees"
+    ]
+  }
