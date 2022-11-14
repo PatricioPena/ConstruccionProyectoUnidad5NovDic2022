@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;  
 import com.networknt.schema.JsonSchema;  
 import com.networknt.schema.JsonSchemaFactory;  
+import com.networknt.schema.SpecVersion;  
 import com.networknt.schema.ValidationMessage;  
   
 // create class to validate JSON document  
@@ -24,7 +25,7 @@ public class Validacion_Json {
         ObjectMapper objectMapper = new ObjectMapper();  
           
         // create an instance of the JsonSchemaFactory using version flag  
-        JsonSchemaFactory schemaFactory = JsonSchemaFactory.getInstance();  
+        JsonSchemaFactory schemaFactory = JsonSchemaFactory.getInstance(SpecVersion.VersionFlag.V4);  
           
         // store the JSON data in InputStream  
         try(  
