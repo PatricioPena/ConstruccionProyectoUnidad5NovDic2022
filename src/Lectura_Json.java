@@ -6,16 +6,18 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import javax.swing.JOptionPane;
 
+
 public class Lectura_Json {
 
-    public static void main(String[] args) {
+    public String leerJson() {
 
         try {
            
-            String content = Files.readString(Paths.get("listado.json"));
+            String content = Files.readString(Paths.get("src/listado.json"));
             JSONObject obj = new JSONObject(content);
             JSONObject jsonObject = obj.getJSONObject("employees");
             JSONArray jsonPersonData = jsonObject.getJSONArray("employee");
+            StringBuilder st = new StringBuilder();
             
             for (int i = 0; i < jsonPersonData.length(); i++) {
 
@@ -25,16 +27,18 @@ public class Lectura_Json {
                 String lastname = item.getString("lastName");
                 String photo = item.getString("photo");
 
-                JOptionPane.showMessageDialog(null, "ID: " + id + "\n" + "Nombre: " + name + "\n" + "Apellido: " + lastname + "\n" + "Foto: " + photo + "\n");
-                System.out.println("ID: " + id);
-                System.out.println("Nombre: " + name);
-                System.out.println("Apellido: " + lastname);
-                System.out.println("Foto: " + photo);
-                System.out.println(" ");
+                st.append(id + " ");
+                st.append(name+" ");
+                st.append(lastname+" ");
+                st.append(photo+" ");
+                st.append("\n");
+
             }
 
+            return st.toString();
         } catch (FileNotFoundException e) {
         } catch (IOException e) {
         } 
+        return "";
     }
 }
