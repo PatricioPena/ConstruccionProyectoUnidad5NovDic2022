@@ -7,7 +7,7 @@
  *
  * @author patri
  */
-public class test {
+public class Conexion_Json_Pantalla {
 
     /**
      * @param args the command line arguments
