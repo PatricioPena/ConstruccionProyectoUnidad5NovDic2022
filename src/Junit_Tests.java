@@ -17,4 +17,14 @@ public class Junit_Tests {
         }
         assertEquals(expectedResult, actualResult);
     }
+
+    @Test
+    public void ValidarDatos(){
+
+            Validacion_Json validacionJSON = new Validacion_Json();           
+            validacionJSON.ValidarJson();
+            boolean expectedResult = false;
+            boolean actualResult = validacionJSON.isActive();
+            assertEquals(expectedResult, actualResult);
+    }
 }
