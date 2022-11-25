@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
@@ -11,13 +13,12 @@ public class Conexion_Json_Pantalla {
 
     /**
      * @param args the command line arguments
+     * @throws IOException
      */
-    public static void main(String[] args) {
-       pantalla p = new pantalla();
-       Lectura_Json l = new Lectura_Json();
-       p.getjTextArea1().setText(l.leerJson());
-       p.setVisible(true);
-       p.setLocationRelativeTo(null);
+    public static void main(String[] args) throws IOException {;
+       PantallaTest frame = new PantallaTest();
+       frame.pack();
+       frame.setVisible(true);
     }
     
 }

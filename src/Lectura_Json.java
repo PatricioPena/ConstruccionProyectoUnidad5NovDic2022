@@ -2,10 +2,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class Lectura_Json {
+    private ArrayList<Empleado> empleados = new ArrayList<Empleado>();
 
     public String leerJson() {
 
@@ -16,7 +18,7 @@ public class Lectura_Json {
             JSONObject jsonObject = obj.getJSONObject("employees");
             JSONArray jsonPersonData = jsonObject.getJSONArray("employee");
             StringBuilder st = new StringBuilder();
-            
+
             for (int i = 0; i < jsonPersonData.length(); i++) {
 
                 JSONObject item = jsonPersonData.getJSONObject(i);
@@ -24,13 +26,10 @@ public class Lectura_Json {
                 String name = item.getString("firstName");
                 String lastname = item.getString("lastName");
                 String photo = item.getString("photo");
-
-                st.append(id + " ");
-                st.append(name+" ");
-                st.append(lastname+" ");
-                st.append(photo+" ");
-                st.append("\n");
-
+                
+                Empleado empleado = new Empleado(id, name, lastname, photo);
+                empleados.add(empleado);
+                
             }
 
             return st.toString();
@@ -39,4 +38,10 @@ public class Lectura_Json {
         } 
         return "";
     }
+
+    public ArrayList<Empleado> getEmpleados() {
+        return empleados;
+    }
+
+    
 }
