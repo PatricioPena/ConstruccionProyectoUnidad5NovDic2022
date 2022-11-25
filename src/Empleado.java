@@ -1,12 +1,12 @@
 public class Empleado {
     private String id;
-    private String firtsName;
+    private String firstName;
     private String lastName;
     private String photo;
     
-    public Empleado(String id, String firtsName, String lastName, String photo) {
+    public Empleado(String id, String firstName, String lastName, String photo) {
         this.id = id;
-        this.firtsName = firtsName;
+        this.firstName = firstName;
         this.lastName = lastName;
         this.photo = photo;
     }
@@ -16,11 +16,11 @@ public class Empleado {
     public void setId(String id) {
         this.id = id;
     }
-    public String getFirtsName() {
-        return firtsName;
+    public String getFirstName() {
+        return firstName;
     }
-    public void setFirtsName(String firtsName) {
-        this.firtsName = firtsName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
     public String getLastName() {
         return lastName;
