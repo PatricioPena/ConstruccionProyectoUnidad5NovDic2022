@@ -7,8 +7,15 @@ import org.json.JSONObject;
 
 public class Edicion_Json
 {
-	public void EdicionJson()
+	boolean Errors=true;
+
+    public boolean isActive(){
+        return this.Errors;
+    }
+
+	public boolean EdicionJson()
 	{
+		
 		String identificador = JOptionPane.showInputDialog(null, "Ingresa el id del empleado a modificar");
 		Lectura_Json lectura = new Lectura_Json();
 		lectura.leerJson();
@@ -26,14 +33,20 @@ public class Edicion_Json
 				empleadotemp.put("id", identificador);
 				empleadotemp.put("firstName", firstName);
 				empleadotemp.put("lastName", lastName);
-				empleadotemp.put("photo", photo);			
+				empleadotemp.put("photo", photo);
+				if (firstName.equals(empleado.getFirstName())) {  
+					Errors=false; 
+					return true;
+				} else {
+					return false;
+				}	
 			}else{	
 				empleadotemp.put("id", empleado.getId());
 				empleadotemp.put("firstName", empleado.getFirstName());
 				empleadotemp.put("lastName", empleado.getLastName());
 				empleadotemp.put("photo", empleado.getPhoto());			
-
 			}
+
 			jsonArrayEmpleados.put(empleadotemp);
 		}
 
@@ -48,5 +61,6 @@ public class Edicion_Json
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return Errors;
 	}
 }

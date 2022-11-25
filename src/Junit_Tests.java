@@ -27,4 +27,15 @@ public class Junit_Tests {
             boolean actualResult = validacionJSON.isActive();
             assertEquals(expectedResult, actualResult);
     }
+
+    @Test
+    public void validarModificacion(){
+
+            Edicion_Json edicion = new Edicion_Json();           
+            edicion.EdicionJson();
+            boolean expectedResult = true;
+            boolean actualResult = edicion.isActive();
+            assertEquals(expectedResult, actualResult);
+    }
+
 }
