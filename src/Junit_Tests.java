@@ -32,10 +32,11 @@ public class Junit_Tests {
     public void validarModificacion(){
 
             Edicion_Json edicion = new Edicion_Json();           
-            edicion.EdicionJson();
+            edicion.editarEmpleados();
             boolean expectedResult = true;
             boolean actualResult = edicion.isActive();
             assertEquals(expectedResult, actualResult);
     }
 
+    
 }

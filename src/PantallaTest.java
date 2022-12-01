@@ -81,9 +81,7 @@ public class PantallaTest extends JFrame implements ActionListener {
             setLayout(new FlowLayout());
 
             this.modificar = new JButton("Modificar");
-
             this.agregar = new JButton("Agregar");
-
             this.eliminar = new JButton("Eliminar");
 
             add(this.modificar);
@@ -95,7 +93,6 @@ public class PantallaTest extends JFrame implements ActionListener {
             add(this.eliminar);
 
             this.modificar.addActionListener(this);
-
             this.agregar.addActionListener(this);
             this.eliminar.addActionListener(this);
 
@@ -119,20 +116,35 @@ public class PantallaTest extends JFrame implements ActionListener {
         return button;
     }
 
+    public JButton getButtonEliminar(JButton button) {
+        return button;
+    }
+
+    public JButton getButtonAgregar(JButton button) {
+        return button;
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (this.modificar.equals(e.getSource())) {
             Edicion_Json edicion = new Edicion_Json();
-            edicion.EdicionJson();
+            edicion.editarEmpleados();
             dispose();
             Reload();
+        } else {
+            if (this.eliminar.equals(e.getSource())) {
+                Edicion_Json edicion = new Edicion_Json();
+                edicion.eliminarEmpleados();
+                dispose();
+                Reload();
         }
-    }
 
-    public void Reload(){
+    }}
+
+    public void Reload() {
         PantallaTest frame = new PantallaTest();
         frame.pack();
-        frame.setBounds(0,0,1920,1280);
+        frame.setBounds(0, 0, 1920, 1280);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
