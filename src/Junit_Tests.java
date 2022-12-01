@@ -38,5 +38,13 @@ public class Junit_Tests {
             assertEquals(expectedResult, actualResult);
     }
 
-    
+    @Test
+    public void validarEliminacion(){
+
+            Edicion_Json edicion = new Edicion_Json();           
+            edicion.eliminarEmpleados();
+            boolean expectedResult = true;
+            boolean actualResult = edicion.isActive();
+            assertEquals(expectedResult, actualResult);
+    }
 }
