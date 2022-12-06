@@ -32,9 +32,29 @@ public class Junit_Tests {
     public void validarModificacion(){
 
             Edicion_Json edicion = new Edicion_Json();           
-            edicion.EdicionJson();
+            edicion.editarEmpleados();
             boolean expectedResult = true;
             boolean actualResult = edicion.isActive();
+            assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    public void validarEliminar(){
+
+            Edicion_Json edicion = new Edicion_Json();           
+            edicion.eliminarEmpleados();
+            boolean expectedResult = false;
+            boolean actualResult = edicion.isDeleting();
+            assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    public void validarAgregar(){
+            
+            Edicion_Json edicion = new Edicion_Json();             
+            edicion.agregarEmpleado();
+            boolean expectedResult = true;
+            boolean actualResult = edicion.isAdding();
             assertEquals(expectedResult, actualResult);
     }
 
