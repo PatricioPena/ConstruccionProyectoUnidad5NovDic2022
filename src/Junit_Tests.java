@@ -1,6 +1,7 @@
 import static org.junit.Assert.assertEquals;
 import java.io.File;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 public class Junit_Tests {
     private String path = ("C:\\Users\\aeort\\Documents\\Construccion\\ConstruccionProyectoUnidad5NovDic2022\\src\\listado.json");
@@ -16,6 +17,12 @@ public class Junit_Tests {
             
         }
         assertEquals(expectedResult, actualResult);
+    }
+
+    @BeforeEach
+    void setup(){
+        Lectura_Json lectura = new Lectura_Json();
+		lectura.leerJson();
     }
 
     @Test
@@ -50,7 +57,6 @@ public class Junit_Tests {
 
     @Test
     public void validarAgregar(){
-            
             Edicion_Json edicion = new Edicion_Json();             
             edicion.agregarEmpleado();
             boolean expectedResult = true;

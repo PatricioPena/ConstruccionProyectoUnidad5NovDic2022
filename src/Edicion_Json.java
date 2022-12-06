@@ -1,3 +1,4 @@
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -89,9 +90,13 @@ public class Edicion_Json
 		int idEmpleado = 0;
 		int contador = 0;
 		int validar = Integer.parseInt(identificador);
-		if(validar > jsonArrayEmpleados.length()){
+		for(Empleado empleado: empleados){		
+			contador++;
+		}
+		if(validar > contador){
 			JOptionPane.showMessageDialog(null, "El empleado no existe");
 		}else{
+			contador = 0;
 		for(Empleado empleado: empleados){		
 			contador++;
 			JSONObject empleadotemp = new JSONObject();
@@ -131,10 +136,10 @@ public class Edicion_Json
 	
 	}
 	
-	public boolean agregarEmpleado(){
+	public int agregarEmpleado(){
 
 		Lectura_Json lectura = new Lectura_Json();
-		lectura.leerJson();
+        lectura.leerJson();
 		ArrayList<Empleado> empleados = lectura.getEmpleados();		
 		JSONObject json = new JSONObject();
 		JSONArray jsonArrayEmpleados = new JSONArray();
@@ -153,7 +158,7 @@ public class Edicion_Json
 		idEmpleado++;
 		String idString = String.valueOf(idEmpleado);
 		JSONObject empleadotemp = new JSONObject();
-		String firstName = JOptionPane.showInputDialog(null, "Ingresa el pimer nombre del empleado ");
+		String firstName =JOptionPane.showInputDialog(null, "Ingresa el pimer nombre del empleado ");
 		String lastName = JOptionPane.showInputDialog(null, "Ingresa el apellido del empleado ");
 		String photo = JOptionPane.showInputDialog(null, "Ingresa el link de la imagen del empleado ");
 		empleadotemp.put("id", idString);
@@ -167,13 +172,15 @@ public class Edicion_Json
 
 		String path = "src/listado.json";
 		
-		try (PrintWriter out = new PrintWriter(new FileWriter(path))) {
+		try (BufferedWriter out = new BufferedWriter(new FileWriter(path))) {
 			String jsonString = json.toString();
+			out.write("");
 			out.write(jsonString);
+			out.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return Errors;
+		return idEmpleado;
 	}	
 }
