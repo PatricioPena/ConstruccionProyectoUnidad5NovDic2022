@@ -11,9 +11,9 @@ import com.networknt.schema.ValidationMessage;
 
 public class Validacion_Json {
 
-    boolean Errors=true;
+    boolean Errors = true;
 
-    public boolean isActive(){
+    public boolean isActive() {
         return this.Errors;
     }
 
@@ -35,9 +35,9 @@ public class Validacion_Json {
             JsonSchema schema = schemaFactory.getSchema(schemaStream);
             Set<ValidationMessage> validationResult = schema.validate(json);
 
-            if (validationResult.isEmpty()) {  
-                Errors=false;
-                System.out.println( "No hay errores en la validacion" );  
+            if (validationResult.isEmpty()) {
+                Errors = false;
+                System.out.println("No hay errores en la validacion");
                 return true;
             } else {
 
@@ -45,8 +45,8 @@ public class Validacion_Json {
                 return false;
 
             }
-        }catch(IOException e){
-          
+        } catch (IOException e) {
+
             System.out.println("Se encontraron errores de validacion");
             return false;
         }

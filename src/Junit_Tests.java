@@ -14,7 +14,6 @@ public class Junit_Tests {
         boolean actualResult = false;
         if (file.exists()){
             actualResult = true;
-            
         }
         assertEquals(expectedResult, actualResult);
     }

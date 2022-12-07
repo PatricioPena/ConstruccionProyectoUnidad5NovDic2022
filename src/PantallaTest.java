@@ -25,20 +25,16 @@ public class PantallaTest extends JFrame implements ActionListener {
                     return getValueAt(0, column).getClass();
                 }
             };
-
             // se crea la Tabla con el modelo DefaultTableModel
             final JTable table = new JTable(dtm);
-
             // insertamos las columnas
             dtm.addColumn("ID");
             dtm.addColumn("First Name");
             dtm.addColumn("Last Name");
             dtm.addColumn("Photo");
-
             // creamos un objeto para centrar la tabla
             DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
             centerRenderer.setHorizontalAlignment(JLabel.CENTER);
-
             // insertamos el tamaño de las columnas y centramos los datos
             for (int i = 0; i < 3; i++) {
                 table.getColumnModel().getColumn(i).setPreferredWidth(50);
@@ -59,56 +55,41 @@ public class PantallaTest extends JFrame implements ActionListener {
                 imageIcon = new ImageIcon(image);
                 Icon icon = (Icon) imageIcon;
                 dtm.addRow(new Object[] { empleado.getId(), empleado.getFirstName(), empleado.getLastName(), icon });
-
             }
-
             // se define el tamaño
             table.setPreferredScrollableViewportSize(new Dimension(1500, 720));
-
             // Creamos un JscrollPane y le agregamos la JTable
             JScrollPane scrollPane = new JScrollPane(table);
-
             // Agregamos el JScrollPane al contenedor
             getContentPane().add(scrollPane, BorderLayout.CENTER);
-
             // manejamos la salida
             addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
                     System.exit(0);
                 }
             });
-
             setLayout(new FlowLayout());
-
             this.modificar = new JButton("Modificar");
             this.agregar = new JButton("Agregar");
             this.eliminar = new JButton("Eliminar");
-
             add(this.modificar);
             add(Box.createRigidArea(new Dimension(10, 0)));
-
             add(this.agregar);
             add(Box.createRigidArea(new Dimension(10, 0)));
-
             add(this.eliminar);
-
             this.modificar.addActionListener(this);
             this.agregar.addActionListener(this);
             this.eliminar.addActionListener(this);
-
         } catch (IOException e) {
-
         }
     }
 
     private Image getScaledImage(Image srcImg, int w, int h) {
         BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2 = resizedImg.createGraphics();
-
         g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
         g2.drawImage(srcImg, 0, 0, w, h, null);
         g2.dispose();
-
         return resizedImg;
     }
 
@@ -147,7 +128,6 @@ public class PantallaTest extends JFrame implements ActionListener {
                 }
             }
         }
-
     }
 
     public void Reload() {
